@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Cats!</title>
+    <meta charset="utf-8" />
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+/* STYLE NAV BAR */
+
+li a:hover {
+    background-color: #DDA6B5;
+    color: white;
+}  
+#cat_image {
+    margin: 0% 25% 0%;
+    width: 25%;
+    border-radius: 10px;
+    border: 5px double gray;
+}
+#cat_information {
+    display: grid;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 2rem;
+    place-content: center;
+    min-height: 100vh;
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+}
+  
+p {
+    margin: 2rem 0 0;
+}
+#no_button{
+    padding: 5px;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    background-color: crimson;
+    color: white;
+}
+#yes_button:a{
+    color: white;
+}
+#yes_button{
+    padding: 5px;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+}
+
+    </style>
+
+	  <script>
+const url = `https://api.thecatapi.com/v1/breeds`;
+
+const api_key = "live_iXnVD4lukkXhF2u4T0yngNxE9yhCTliaMqQvyLN3Us4uQshmhpMar2bz2CptZbmw";
+
+// a variable to store the information about the breeds
+
+let storedBreeds = [];
+
+
+// a function to select a random breed
+
+function getRandomInt(min, max) {
+return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// a function to show images and information of the breeds
+function showCatImageAndInformation(index) {
+
+// This will display the image of the cat
+  document.getElementById("cat_image").src = storedBreeds[index].image.url;
+
+// This will get the breed name
+  document.getElementById("breed_name").innerHTML = storedBreeds[index].name;
+
+// This will get the wiki link
+  document.getElementById("wiki_link").href = storedBreeds[index].wikipedia_url;
+
+  document.getElementById("wiki_link").innerHTML =
+    storedBreeds[index].wikipedia_url;  
+
+// This will get the characteristics of the cat
+  document.getElementById("breed_json").textContent =
+    storedBreeds[index].temperament;
+}
+
+
+// a function to retrieve data from the API
+fetch(url, {
+  headers: {
+    "x-api-key": api_key,
+  },
+})
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    // Storing the retrieved data from the API in our variable
+    storedBreeds = data;
+
+    // Using the random function to select a specific breed. Then extracting information from that breed
+    showCatImageAndInformation(getRandomInt(0, storedBreeds.length - 1));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+    // button code
+    document.getElementById("yes_button")
+    let breed = document.getElementById("breed_name")
+
+      </script>
+
+    </head>
+
+    <body>
+
+        <main>
+            <h1>Find your purrfect Cats!</h1>
+        </main>
+
+<!-- Cat Image -->
+<div>
+    <img id="cat_image" class="img"></img>
+  </div>
+  
+  <!-- Cat Information -->
+  <div class="cat_information">
+    <h4 id="breed_name"></h4>
+    Wiki Link: <a id="wiki_link" target="_blank"></a> <br />
+    Breed Characteristics:
+    <div id="breed_json"></div>
+  </div>
+
+  <br>
+  <button id="no_button" type='button' onclick="window.location.reload();">Nope, give me a new cat.</button>
+  <br>
+  <button id="yes_button" type='button'><a href="match.html">I love this cat!</a></button>
+
+    </body>
+</html>

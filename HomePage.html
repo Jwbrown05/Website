@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">>
+    <head>
+        <title>HomePage</title>
+    <meta charset="utf-8" />
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	  <!-- link the webpage's stylesheet -->
+	  <link rel="stylesheet" href="/style.css" />
+
+	  <!-- link the webpage's JavaScript file -->
+	  <script src="/script.js" defer></script>
+
+    <style>
+        .popup-box{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup-content{
+            position: relative;
+            background-color: white;
+            padding: 100px;
+            border-radius: 50px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+        }
+
+        button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #04AA6D;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+}
+
+        button:hover {background-color: #76d37b}
+
+        button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+}
+
+        buttona {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #ffffff;
+            background-color: #eb9423;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+}
+
+        buttona:hover {background-color: #e3a562}
+
+        buttona:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+}
+    </style>
+    </head>
+    <body>
+        <div id="popup" class="popup-box">
+            <div class="popup-content">
+                <p><font size="100">Are You a...?</font></p>
+                <a href= "Human.html">
+                    <button><font size="100">Cat!</font></button> 
+                <a href= "Cat.html">
+                    <buttona><font size="100">Human?</font></button>
+            </div>
+        </div>
+    
+        <script>
+        window.onload = function () {
+            document.getElementById('popup').style.visibility = 'visible';
+        }
+        </script>  
+        
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+   
+
+   

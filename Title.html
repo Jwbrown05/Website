@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html>
+<Title> Purrfect Match </Title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+     .rainbow {
+  text-align: center;
+  font-size: 100px;
+  font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+  letter-spacing: 5px;
+  animation: colorRotate 6s linear 0s infinite;
+ }
+@keyframes colorRotate {
+  from {
+    color: #6666ff;
+  }
+  10% {
+    color: #0099ff;
+  }
+  50% {
+    color: #00ff00;
+  }
+  75% {
+    color: #ff3399;
+  }
+  100% {
+    color: #6666ff;
+  }
+}
+button {
+            display: inline-block;
+            position: relative;
+            top: -200px;
+            padding: 15px 25px;
+            font-size: 12px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #000b01;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin: 10px 0;
+}
+
+        button:hover {background-color: #afdab1}
+
+        button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 100px;
+    align-items: center;
+    padding: 2rem;
+    place-content: center;
+    min-height: 100vh;
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+}
+
+.bouncyHouse {
+    height:1000px;
+    width:900px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    top: -100px;
+    right: 220px;
+}
+
+.bouncer {
+    position: absolute;
+    width: 20px;
+}
+
+.border {
+    width:20px;
+    position: relative;
+}
+</style>
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <td>
+                <div class="bouncyHouse">
+                    <div class="bouncer">
+                        <span><h3 class="rainbow">Purrfect Match</h3>
+                            <b>
+                            </b>
+                            <p></p><p></p><p></p>
+                            <br><br>
+                            <a href= "HomePage.html">
+                            <button class="rainbow"> START</button>
+                        </span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+<script>
+    var vx = 3;
+    var vy = 2;
+    
+    function hitLR(el, bounding) {
+        if (el.offsetLeft <= 0 && vx < 0) {
+            console.log('LEFT');
+            vx = -1 * vx;
+        }
+        if ((el.offsetLeft + el.offsetWidth) >= bounding.offsetWidth) {
+            console.log('RIGHT');
+            vx = -1 * vx;
+        }
+        if (el.offsetTop <= 0 && vy < 0) {
+            console.log('TOP');
+            vy = -1 * vy;
+        }
+        if ((el.offsetTop + el.offsetHeight) >= bounding.offsetHeight) {
+            console.log('BOTTOM');
+            vy = -1 * vy;
+        }
+    }
+    
+    function mover(el, bounding) {
+        hitLR(el, bounding);
+        el.style.left = el.offsetLeft + vx + 'px';
+        el.style.top = el.offsetTop + vy + 'px';
+        setTimeout(function() {
+            mover(el, bounding);
+        }, 50);
+    }
+    
+    setTimeout(function() {
+        mover($('.bouncer')[0], $('.bouncyHouse')[0]);
+    }, 50);
+    </script>
+
+</body>
+<!DOCTYPE html>
+<html lang="en">

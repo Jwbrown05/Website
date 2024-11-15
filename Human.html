@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Cats!</title>
+    <meta charset="utf-8" />
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+/* STYLE NAV BAR */
+
+li a:hover {
+    background-color: #DDA6B5;
+    color: white;
+}  
+#cat_image {
+    margin: 0% 25% 0%;
+    width: 25%;
+    border-radius: 10px;
+    border: 5px double gray;
+}
+#cat_information {
+    display: grid;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 2rem;
+    place-content: center;
+    min-height: 100vh;
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+}
+  
+p {
+    margin: 2rem 0 0;
+}
+#no_button{
+    padding: 5px;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    background-color: crimson;
+    color: white;
+}
+#yes_button:a{
+    color: white;
+}
+#yes_button{
+    padding: 5px;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+}
+img {
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+            padding: 1px 2px;
+            size: 10px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #ececec;
+            border:5px double grey;
+            border-radius: 10px;
+            box-shadow: 0 9px #999;
+}
+    </style>
+
+</head>
+
+    <body>
+
+        <main>
+            <h1>Find your PERFECT Humans!</h1>
+        </main>
+
+<!-- Human Image -->
+<div>
+    <img src="https://100k-faces.glitch.me/random-image" />
+  </div>
+  
+  <!-- Human Information -->
+  <div class="cat_information">
+    <h4 id="Human_name"></h4>
+  </div>
+
+  <br>
+  <button id="no_button" type='button' onclick="window.location.reload();">Nope, give me a new Human.</button>
+  <br>
+  <button id="yes_button" type='button'><a href="HumanAI.html">I love this Human!</a></button>
+  <script src ="Names.js"></script>
+    </body>
+</html>
+

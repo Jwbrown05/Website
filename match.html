@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Cats!</title>
+    <meta charset="utf-8" />
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+/* STYLE NAV BAR */
+
+a:hover {
+    background-color: lightcoral;
+    color: white;
+}
+button:hover{
+    background-color: lightcoral;
+    color: white;
+}
+#cat_image {
+    margin: 0% 25% 0%;
+    width: 25%;
+    border-radius: 10px;
+    border: 5px double gray;
+}
+#cat_information {
+    display: grid;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+    
+}
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 2rem;
+    place-content: center;
+    min-height: 100vh;
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+}
+  
+p {
+    margin: 2rem 0 0;
+}
+.info{
+    align-items: left;
+    place-content: left;
+    text-align: left;
+}
+button{
+    padding: 10px;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    background-color: lightsteelblue;
+    text-decoration: none;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+    </style>
+
+	  <script>
+    // button code
+    // let image = document.getElementById("myCat");
+    
+
+    function updateImage() {
+        let image = document.getElementById("myCat");
+        let images = ["assets/default_cat.png", "assets/hungry_cat.png", "assets/sleepy_cat.png", "assets/kicked_the_bucket.png"];
+        image.src = "assets/hungry_cat.png";
+        index ++;
+        if (index == images.length){
+            index = 0;
+        }
+        else{
+            index ++;
+        }
+    }
+    let index = 0;
+    setInterval(updateImage, 5000);
+    
+    function setName(){
+        // naming the cat
+        let name_input = document.getElementById("name_input")
+        let name_display = document.getElementById("name_display")
+        // name_display.innerHTML = "<h1>HEADER</h1>";
+        name_display.textContent = name_input.value;
+        // name_input;
+        console.log(name_input)
+
+    }
+    
+    
+      </script>
+
+    </head>
+
+    <body>
+            <h2 id="name_display">Name your cat!</h2>
+            <img src="assets/default_cat.png" id="myCat" alt="neutral faced cat">
+            <button onClick="document.getElementById('myCat').src='assets/happy_cat.png'">Feed</button>
+            <br>
+            <button onClick="updateImage()">Water</button>
+            <p>Name your cat: </p> <input type="text" id="name_input" placeholder="Whiskers">
+            <br>
+            <button onclick="setName()">Name</button>
+            <br>
+            <button> <a href="CatAI.html">Talk to your cat</a></button>
+            <br>
+            <button><a href="cat.html">Find a new cat</a></button>
+
+            <div class="info">
+                <h3>Want to adopt or foster a cat in real life?</h3>
+                <p>Foster homes provide cats with a temporary shelter, since shelters often do not have enough room for all of the animals in need. Foster homes are less stressful for the animal, and helps them get used to a home environment before getting adopted.</p>
+                <h3>How can I foster a cat?</h3>
+                <p>Contact your county's animal shelter, or find a local rescue group! <a href="https://www.petfinder.com/animal-shelters-and-rescues/search/">Petfinder</a> is helpful for this!</p>
+                <h3>Fast facts:</h3>
+                <ul>
+                    <li>Each year, approximately 920,000 shelter animals are euthanized (390,000 dogs and 530,000 cats).</li>
+                    <li>Approximately 4.1 million shelter animals are adopted each year (2 million dogs and 2.1 million cats).</li>
+                    <li>About 810,000 animals who enter shelters as strays are returned to their owners. Of those, 710,000 are dogs and 100,000 are cats.</li>
+                    <li>Visit the <a href="https://kittencoalition.org/">National Kitten Coalition</a> to learn more about caring for kittens.</li>
+                </ul>
+            </div>
+            
+    </body>
+</html>
